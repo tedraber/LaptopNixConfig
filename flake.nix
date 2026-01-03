@@ -9,15 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sls-steam = {
-      url = "github:AceSLS/SLSsteam";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     affinity-nix.url = "github:mrshmllow/affinity-nix";
   };
 
-  outputs = { self, nixpkgs, affinity-nix, sls-steam, home-manager, ... }: {
+  outputs = { self, nixpkgs, affinity-nix, home-manager, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit sls-steam; };
